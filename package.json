@@ -1,0 +1,50 @@
+{
+  "name": "add-to-release-notes",
+  "description": "GitHub Action to add content to release notes",
+  "type": "module",
+  "homepage": "https://github.com/gacts/add-to-release-notes#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gacts/add-to-release-notes.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gacts/add-to-release-notes/issues"
+  },
+  "keywords": [
+    "actions",
+    "github",
+    "release",
+    "notes",
+    "update"
+  ],
+  "scripts": {
+    "build": "rollup --config rollup.config.js",
+    "fmt": "prettier --write ./src ./*.js && eslint ./src/**/*.js --fix",
+    "lint": "eslint ./src/**/*.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.11.1",
+    "@actions/github": "^6.0.1"
+  },
+  "devDependencies": {
+    "@eslint/compat": "^2.0.0",
+    "@rollup/plugin-commonjs": "^29.0.0",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@types/node": "^24.10.1",
+    "eslint": "^9.39.1",
+    "eslint-plugin-import": "^2.32.0",
+    "prettier": "^3.6.2",
+    "rollup": "^4.53.2"
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "*"
+  },
+  "engines": {
+    "node": "24"
+  },
+  "volta": {
+    "node": "24"
+  }
+}

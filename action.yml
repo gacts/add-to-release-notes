@@ -1,0 +1,43 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-action.json
+# docs: https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions
+
+name: Add to Release Notes
+description: GitHub Action to add content to release notes
+
+branding:
+  icon: chevron-up
+  color: green
+
+inputs:
+  append:
+    description: Content to append (at the end) to the release notes
+    required: false
+    type: string
+  prepend:
+    description: Content to prepend (at the beginning) to the release notes
+    required: false
+    type: string
+  skip-if-contains:
+    description: If the release notes already contain this string/regex, do not modify them
+    required: false
+    type: string
+  release-id:
+    description: Release ID to update. If not specified, will try to detect from context
+    required: false
+    default: ${{ github.event.release.id }}
+  tag-name:
+    description: Tag name to find release. Used if release-id is not provided
+    required: false
+    default: ${{ github.ref_name }}
+  github-token:
+    description: GitHub auth token. Since there's a default, this is typically not supplied by the user
+    required: false
+    default: ${{ github.token }}
+
+outputs:
+  updated-body:
+    description: The updated body content with added release notes
+
+runs:
+  using: node24
+  main: dist/index.js
