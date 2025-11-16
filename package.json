@@ -43,7 +43,7 @@
     "@rollup/rollup-linux-x64-gnu": "*"
   },
   "engines": {
-    "node": ">=24.0.0"
+    "node": "24"
   },
   "volta": {
     "node": "24"
